@@ -60,3 +60,14 @@ Recept leírásának megtekintése
 
 <img src="./assets/Steps.png" width="360">
 
+## Architektúra ismertetése
+
+Az MVVM (Model-View-ViewModel) architektúra egy hatékony tervezési minta, amely segít elkülöníteni az alkalmazás logikáját és a felhasználói felületet, ahol a ViewModel réteg közvetíti az adatokat a nézetréteg és a modell között. Ez a válaszotott architektúra tiszta és jól strukturált Android alkalmazások fejlesztését teszi lehetővé.
+
+## Commit history
+<img src="./assets/commit_history.png" height="90%" width="90%">
+
+
+## Github actions
+
+<img src="./assets/build_success.png" height="90%" width="90%">
