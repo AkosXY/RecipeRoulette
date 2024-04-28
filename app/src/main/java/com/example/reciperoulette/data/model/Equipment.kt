@@ -3,7 +3,7 @@ package com.example.reciperoulette.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Ingredient(
+data class Equipment(
     @SerializedName("id")
     val id: Int,
     @SerializedName("image")
