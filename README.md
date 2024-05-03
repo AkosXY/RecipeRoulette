@@ -71,3 +71,40 @@ Az MVVM (Model-View-ViewModel) architektúra egy hatékony tervezési minta, ame
 ## Github actions
 
 <img src="./assets/build_success.png" height="90%" width="90%">
+
+
+## Dokumentáció
+
+### Hálózati réteg:
+
+**RecipeApiService**: Ez az interfész felelős a receptekkel kapcsolatos API végpontok definálását szolgálja.
+
+**RecipeRepository**: Ez az osztály felelős a receptekkel kapcsolatos hálózati adatelérés kezeléséért. 
+
+**ApiModule**: A modul felelős a hálózati komponensek konfigurációjáért. A megfelelő kódgeneráláshot és megfelelő injektálásához Hilt Daggert használ a hálózati hívásokhoz szükséges objektumok létrehozásához (OkHttpClient, Retrofit, RecipeApiService, RecipeRepository) 
+
+**Model osztályok**: Adatmodell oszályok az API kérés válaszának struktúráját leíró osztályok: AnalyzedInstruction, Equipment, ExtendedIngredient, Ingredient, Length, Measures, Metric, RandomRecipeResponse, Recipe, RecipeEntity, Step, Us
+
+
+Az feladathoz [spoonacular](https://spoonacular.com/food-api/docs) API-t használtam. A használt végpont leírása [openapi leíró](openapi.yaml)-ban megtalálható.
+
+
+### Adat réteg:
+
+**RecipeDao**: Ez az interfész felelős a receptek adatbázisbeli műveleteinek definiálásáért.
+
+**RecipeDatabase**:  Ez az absztrakt osztály felelős az alkalmazás adatbázisának inicializálásáért. 
+
+**RecipeEntity**: Ezt a sémát használja a RecipeDatabase.
+
+**DatabaseModule**: Ez a modul felelős az alkalmazás adatbázis komponenseinek konfigurációjáért. Biztosítja a RecipeDao és RecipeDatabase objektumok létrehozását és injektálását más osztályok számára a Hilt keretrendszer segítségével.
+
+
+
+
+
+
+
+
+
+

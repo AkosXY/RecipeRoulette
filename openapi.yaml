@@ -1,0 +1,211 @@
+openapi: 3.0.0
+info:
+  title: Spoonacular Recipe API
+  version: 1.0.0
+  description: API for accessing random recipes
+servers:
+  - url: https://api.spoonacular.com/
+paths:
+  /recipes/random:
+    get:
+      summary: Get a random recipe
+      parameters:
+        - name: apiKey
+          in: query
+          required: false
+          schema:
+            type: string
+            default: "c4b79c481c0045afb523e21db1afb695"
+          description: API key for authentication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RandomRecipeResponse'
+components:
+  schemas:
+    RandomRecipeResponse:
+      type: object
+      properties:
+        recipes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Recipe'
+    Recipe:
+      type: object
+      properties:
+        vegetarian:
+          type: boolean
+        vegan:
+          type: boolean
+        glutenFree:
+          type: boolean
+        dairyFree:
+          type: boolean
+        veryHealthy:
+          type: boolean
+        cheap:
+          type: boolean
+        veryPopular:
+          type: boolean
+        sustainable:
+          type: boolean
+        lowFodmap:
+          type: boolean
+        weightWatcherSmartPoints:
+          type: integer
+        gaps:
+          type: string
+        preparationMinutes:
+          type: integer
+        cookingMinutes:
+          type: integer
+        aggregateLikes:
+          type: integer
+        healthScore:
+          type: integer
+        creditsText:
+          type: string
+        license:
+          type: string
+        sourceName:
+          type: string
+        pricePerServing:
+          type: number
+        extendedIngredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ingredient'
+        id:
+          type: integer
+        title:
+          type: string
+        readyInMinutes:
+          type: integer
+        servings:
+          type: integer
+        sourceUrl:
+          type: string
+        image:
+          type: string
+        imageType:
+          type: string
+        summary:
+          type: string
+        cuisines:
+          type: array
+          items:
+            type: string
+        dishTypes:
+          type: array
+          items:
+            type: string
+        diets:
+          type: array
+          items:
+            type: string
+        occasions:
+          type: array
+          items:
+            type: string
+        instructions:
+          type: string
+        analyzedInstructions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              steps:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InstructionStep'
+        originalId:
+          type: integer
+        spoonacularScore:
+          type: number
+        spoonacularSourceUrl:
+          type: string
+    Ingredient:
+      type: object
+      properties:
+        id:
+          type: integer
+        aisle:
+          type: string
+        image:
+          type: string
+        consistency:
+          type: string
+        name:
+          type: string
+        nameClean:
+          type: string
+        original:
+          type: string
+        originalName:
+          type: string
+        amount:
+          type: number
+        unit:
+          type: string
+        meta:
+          type: array
+          items:
+            type: string
+        measures:
+          type: object
+          properties:
+            us:
+              $ref: '#/components/schemas/Measure'
+            metric:
+              $ref: '#/components/schemas/Measure'
+    Measure:
+      type: object
+      properties:
+        amount:
+          type: number
+        unitShort:
+          type: string
+        unitLong:
+          type: string
+    InstructionStep:
+      type: object
+      properties:
+        number:
+          type: integer
+        step:
+          type: string
+        ingredients:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstructionIngredient'
+        equipment:
+          type: array
+          items:
+            $ref: '#/components/schemas/InstructionEquipment'
+    InstructionIngredient:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        localizedName:
+          type: string
+        image:
+          type: string
+    InstructionEquipment:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        localizedName:
+          type: string
+        image:
+          type: string
