@@ -69,6 +69,8 @@ class RecipeViewModel @Inject constructor(
 
             if (loadedRecipe != null) {
                 recipeRepository.updateRecipe(loadedRecipe)
+            } else {
+                getNewRecipe()
             }
 
         }

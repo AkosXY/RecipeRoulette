@@ -24,7 +24,6 @@ fun RecipeStepsScreen() {
 
     val viewModel: RecipeStepsViewModel = hiltViewModel()
 
-
     val recipeState by viewModel.recipe.collectAsState()
     val recipeSteps = parseSteps(recipeState?.instructions.toString())
 
