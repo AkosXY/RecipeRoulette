@@ -1,6 +1,5 @@
 package com.example.reciperoulette.feature.recipe
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -39,13 +38,6 @@ class RecipeViewModel @Inject constructor(
                 val instructionsString = createInstructionsString(apiResponse)
                 val image = apiResponse.image
 
-                Log.i("my_tag", "Title: $title")
-                Log.i("my_tag", "Dish Type: $dishType")
-                Log.i("my_tag", "Summary: $summary")
-                Log.i("my_tag", "Ingredients: $ingredientsString")
-                Log.i("my_tag", "Instructions: $instructionsString")
-
-
                 val newRecipeEntity = RecipeEntity(
                     title = title,
                     dishType = dishType,
@@ -66,7 +58,7 @@ class RecipeViewModel @Inject constructor(
     }
 
 
-    fun loadRecipe() {
+    private fun loadRecipe() {
         viewModelScope.launch {
 
             val loadedRecipe = withContext(Dispatchers.IO) {
@@ -79,15 +71,6 @@ class RecipeViewModel @Inject constructor(
                 recipeRepository.updateRecipe(loadedRecipe)
             }
 
-            loadedRecipe.let { recipeEntity ->
-                Log.i("my_tag", "Title: ${recipeEntity?.title}")
-                Log.i("my_tag", "Dish Type: ${recipeEntity?.dishType}")
-                Log.i("my_tag", "Summary: ${recipeEntity?.summary}")
-                Log.i("my_tag", "Ingredients: ${recipeEntity?.ingredients}")
-                Log.i("my_tag", "Instructions: ${recipeEntity?.instructions}")
-                Log.i("my_tag", "Image: ${recipeEntity?.image}")
-
-            }
         }
     }
 

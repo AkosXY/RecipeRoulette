@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,7 +30,6 @@ fun RecipeScreen() {
 
 
     Column(
-        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -70,15 +68,6 @@ fun RecipeScreen() {
             ) {
                 Text(text = "Fetch Recipe")
             }
-
-            Button(
-                onClick = {
-                    viewModel.loadRecipe()
-                },
-                modifier = Modifier.padding(8.dp)
-            ) {
-                Text(text = "Load Recipe")
-            }
         }
     }
 }
@@ -88,15 +77,14 @@ fun RecipeScreen() {
 fun CardWithImage(recipe: RecipeEntity?) {
 
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.TopCenter
     ) {
         Card(
-            modifier = Modifier.width(300.dp),
+            modifier = Modifier.width(330.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
         ) {
             Column(
-                modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.Start
             ) {
                 Image(
@@ -128,6 +116,7 @@ fun CardWithImage(recipe: RecipeEntity?) {
                         fontSize = 18.sp,
                         modifier = Modifier.padding(start = 16.dp, end = 16.dp)
                     )
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
 
