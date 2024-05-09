@@ -60,19 +60,16 @@ class RecipeViewModel @Inject constructor(
 
     private fun loadRecipe() {
         viewModelScope.launch {
-
             val loadedRecipe = withContext(Dispatchers.IO) {
                 recipeDao.getRecipe()
             }
 
-            recipe = loadedRecipe
-
             if (loadedRecipe != null) {
+                recipe = loadedRecipe
                 recipeRepository.updateRecipe(loadedRecipe)
             } else {
                 getNewRecipe()
             }
-
         }
     }
 
