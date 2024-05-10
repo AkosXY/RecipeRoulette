@@ -102,9 +102,11 @@ Az feladathoz [spoonacular](https://spoonacular.com/food-api/docs) API-t haszná
 
 
 
+## Videó dokumentáció
 
 
-
+A feladatmegoldást bemutató vidó a következő elérhetőségen található:
+https://drive.google.com/file/d/1Lml5WqG6RAHz1RnS8MY5XfZAQHXFBI7H/view?usp=drive_link
 
 
 
