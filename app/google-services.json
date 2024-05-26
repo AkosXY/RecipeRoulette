@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "677034007801",
+    "project_id": "reciperoulette-3eef6",
+    "storage_bucket": "reciperoulette-3eef6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677034007801:android:257e5ea5a3d63b4c0dd628",
+        "android_client_info": {
+          "package_name": "com.example.reciperoulette"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGWs-5QjGYC6XeIcQ4lxKqu0V-_qiqaxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
