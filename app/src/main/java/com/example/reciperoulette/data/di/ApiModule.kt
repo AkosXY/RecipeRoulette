@@ -1,10 +1,10 @@
 package com.example.reciperoulette.data.di
 
+import com.example.reciperoulette.data.dao.RecipeDao
 import com.example.reciperoulette.data.datasource.RecipeRepository
 import com.example.reciperoulette.network.RecipeApiService
 import dagger.Module
 import dagger.Provides
-
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -41,8 +41,7 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun provideRecipeRepository(apiService: RecipeApiService): RecipeRepository {
-        return RecipeRepository(apiService)
+    fun provideRecipeRepository(apiService: RecipeApiService, recipeDao: RecipeDao): RecipeRepository {
+        return RecipeRepository(apiService, recipeDao)
     }
-
 }
