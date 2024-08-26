@@ -18,14 +18,16 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.reciperoulette.navigation.Menu
 import com.example.reciperoulette.navigation.NavGraph
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.logEvent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(analytics: FirebaseAnalytics) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
-            BottomBar(navController)
+            BottomBar(navController, analytics)
         },
         topBar = {
             TopAppBar(
@@ -50,7 +52,7 @@ fun MainScreen() {
 }
 
 @Composable
-fun BottomBar(navController: NavHostController) {
+fun BottomBar(navController: NavHostController, analytics: FirebaseAnalytics) {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -72,13 +74,14 @@ fun BottomBar(navController: NavHostController) {
                         popUpTo(navController.graph.startDestinationId)
                         launchSingleTop = true
                     }
+
+                    analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT) {
+                        param(FirebaseAnalytics.Param.ITEM_ID, screen.route)
+                        param(FirebaseAnalytics.Param.ITEM_NAME, screen.title)
+                        param(FirebaseAnalytics.Param.CONTENT_TYPE, "navigation")
+                    }
                 }
             )
         }
-
     }
-
 }
-
-
-

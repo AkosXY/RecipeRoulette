@@ -109,4 +109,64 @@ A feladatmegoldást bemutató vidó a következő elérhetőségen található:
 https://drive.google.com/file/d/1Lml5WqG6RAHz1RnS8MY5XfZAQHXFBI7H/view?usp=drive_link
 
 
+## Google Analytics
+
+### Analytics dashboard:
+
+<img src="./assets/analytics.png" height="90%" width="90%">
+
+### Crashlytics:
+
+
+<img src="./assets/crash.png" height="90%" width="90%">
+
+
+## Tesztelés
+
+<img src="./assets/tests.png" height="90%" width="90%">
+
+# Unit Tesztek:
+
+## testCreateIngredientsString
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createIngredientsString` függvény helyesen kivonja-e a hozzávalókat egy `RecipeEntity` objektumból. A teszt azt állítja, hogy a visszaadott sztring megegyezik a várt hozzávalók listájával.
+
+## testCreateInstructionsString
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createInstructionsString` függvény helyesen kivonja-e az utasításokat egy `RecipeEntity` objektumból. A teszt azt állítja, hogy a visszaadott sztring megegyezik a várt utasításokkal.
+
+## testCreateShortSummaryWithValidSummary
+**Leírás:**  
+Ez a teszt érvényesíti a `createShortSummary` függvényt, amikor egy nem null, egymondatos összefoglalót kap. Ellenőrzi, hogy a függvény helyesen adja vissza az első mondatot a megadott összefoglalóból.
+
+## testCreateShortSummaryWithNullSummary
+**Leírás:**  
+Ez a teszt biztosítja, hogy a `createShortSummary` függvény üres sztringet ad vissza, amikor null összefoglalót kap. Ellenőrzi a függvény helyes kezelését a null bemenetek esetén.
+
+## testCreateShortSummaryWithEmptySummary
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createShortSummary` függvény helyesen kezeli-e az üres összefoglaló sztringet. A teszt azt állítja, hogy a függvény üres sztringet ad vissza, ahogy az várható.
+
+## testCreateShortSummaryWithHTMLTags
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createShortSummary` függvény helyesen eltávolítja-e az összefoglalóból a HTML tageket, és visszaadja-e a megtisztított szöveg első mondatát. Biztosítja a HTML megfelelő kezelését.
+
+## testCreateShortSummaryFromLongWithHTMLTags
+**Leírás:**  
+Ez a teszt érvényesíti a `createShortSummary` függvényt egy hosszabb, HTML tageket tartalmazó összefoglalóval. Ellenőrzi, hogy a függvény helyesen megtisztítja-e a HTML-t, és visszaadja-e a megtisztított szöveg első mondatát.
+
+## testCreateShortSummaryWithMultipleSentences
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createShortSummary` függvény helyesen kezeli-e a több mondatos összefoglalót. Biztosítja, hogy a függvény csak az első mondatot adja vissza.
+
+## testCreateShortSummaryWithComplexHTML
+**Leírás:**  
+Ez a teszt ellenőrzi, hogy a `createShortSummary` függvény helyesen kezeli-e az összetett HTML struktúrákat az összefoglalóban. Biztosítja, hogy a függvény helyesen eltávolítja a HTML tageket, és visszaadja a megtisztított szöveg első mondatát.
+
+## testCreateShortSummaryWithVeryLongSummary
+**Leírás:**  
+Ez a teszt biztosítja, hogy a `createShortSummary` függvény hatékonyan tudja kezelni a nagyon hosszú összefoglalókat. Ellenőrzi, hogy a függvény helyesen adja vissza az első mondatot, még akkor is, ha a bemeneti összefoglaló rendkívül hosszú.
+
+
+
 
